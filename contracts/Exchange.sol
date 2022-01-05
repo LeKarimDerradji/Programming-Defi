@@ -23,5 +23,10 @@ contract Exchange {
         IERC20 token = IERC20(tokenAddress); 
         token.transferFrom(msg.sender, address(this), _tokenAmmount);
     }
+
+    // Getters
+    function getReserve() public view returns (uint256) {
+        return IERC20(tokenAddress).balanceOf((address(this)));
+    }
 }
 

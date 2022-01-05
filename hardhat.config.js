@@ -17,6 +17,7 @@ module.exports = {
       },
     },
   },
+  /*
   networks: {
     hardhat: {
       // workaround from https://github.com/sc-forks/solidity-coverage/issues/652#issuecomment-896330136 .
@@ -40,6 +41,7 @@ module.exports = {
       accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
     },
   },
+  */
   docgen: {
     path: './docs',
     clear: true,
