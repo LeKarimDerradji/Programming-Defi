@@ -9,7 +9,7 @@ const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY;
 
 module.exports = {
   solidity: {
-    version: '0.8.7',
+    version: '0.8.11',
     settings: {
       optimizer: {
         enabled: true,
