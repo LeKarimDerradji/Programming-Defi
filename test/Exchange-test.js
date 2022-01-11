@@ -39,5 +39,19 @@ describe('Exchange', function () {
     it('Should succesfully approve exhange to spend 200 tokens for user2', async function () {
       expect(await token.allowance(user2.address, exchange.address)).to.eq(200);
     });
+    it('Should change tokenBalance of exchange when user1 submit transfer', async function () {
+      await expect(() => token.connect(user1).transfer(exchange.address, 100)).to.changeTokenBalance(
+        token,
+        exchange,
+        100,
+      );
+    });
+    it('Should change tokenBalance of exchange when user1 submit transfer', async function () {
+      await expect(() => token.connect(user2).transfer(exchange.address, 100)).to.changeTokenBalance(
+        token,
+        exchange,
+        100,
+      );
+    });
   });
 });
