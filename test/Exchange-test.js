@@ -28,8 +28,16 @@ describe('Exchange', function () {
     expect(await token.balanceOf(user1.address)).to.equal(1000);
     expect(await token.balanceOf(user2.address)).to.equal(1000);
   });
-  it('Should succesfully approve exhange to spend 200 tokens', async function () {
-    await token.connect(user1).approve(exchange.address, 200);
-    expect(await token.allowance(user1.address, exchange.address)).to.eq(200);
+  describe('Approval and Transfers to exchange', async function () {
+    beforeEach(async function () {
+      await token.connect(user1).approve(exchange.address, 200);
+      await token.connect(user2).approve(exchange.address, 200);
+    });
+    it('Should succesfully approve exhange to spend 200 tokens for user1', async function () {
+      expect(await token.allowance(user1.address, exchange.address)).to.eq(200);
+    });
+    it('Should succesfully approve exhange to spend 200 tokens for user2', async function () {
+      expect(await token.allowance(user2.address, exchange.address)).to.eq(200);
+    });
   });
 });
